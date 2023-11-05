@@ -8,7 +8,7 @@ from app.workua.parsers import WorkUACandidatesPageParser
 @pytest.fixture(scope="class")
 def html_candidates_page_1() -> str:
     with open(
-            "/Users/dmytrozasalvskyi/PycharmProjects/cv-scrapers/tests/resources/workua/candidates_page_1.html", 'r'
+            "../tests/resources/workua/candidates_page_1.html", 'r'
     ) as file:
         yield file.read()
 
