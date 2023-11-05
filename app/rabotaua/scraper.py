@@ -62,7 +62,7 @@ class WorkUACandidatesScraper:
         response.raise_for_status()
 
         return self._parser.parse(
-            html_content=response.text,
+            content=response.text,
             url=url,
         )
 
@@ -81,7 +81,7 @@ class WorkUACandidatesScraper:
 
         content = response.text
         page_result = self._parser.parse(
-            html_content=content,
+            content=content,
             url=url,
         )
         last_page_number = self._parser.parse_last_page_number(

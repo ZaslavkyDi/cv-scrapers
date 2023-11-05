@@ -9,4 +9,4 @@ class WorkUAScraperSettings(BaseSettings):
 
     @property
     def search_url(self) -> str:
-        return f"{self.host}/resumes/?search="
+        return "https://www.work.ua/resumes/?search="

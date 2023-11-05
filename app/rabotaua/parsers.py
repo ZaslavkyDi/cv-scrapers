@@ -26,9 +26,9 @@ class WorkUACandidatesPageParser(LxmlXpathMixin):
         "//ul[@class='pagination pagination-small visible-xs-block']/li/span[@class='text-default']/text()"
     )
 
-    def parse(self, html_content: str, url: str | None) -> CandidatesPageResultSchema:
+    def parse(self, content: str, url: str | None) -> CandidatesPageResultSchema:
         root: Element = etree.fromstring(
-            text=html_content,
+            text=content,
             parser=etree.HTMLParser(),
             base_url=url
         )
