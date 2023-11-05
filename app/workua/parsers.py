@@ -11,7 +11,7 @@ from app.workua.schemas.schemas import CandidatesPageResultSchema, WorkUACandida
 logger = getLogger(__name__)
 
 
-class WorkUACandidatesPageParser(LxmlXpathMixin):
+class WorkUACandidatesHtmlParser(LxmlXpathMixin):
 
     CANDIDATE_CARD_XPATH = "//*[@id='pjax-resume-list']/div[contains(@class, 'resume-link')]"
     CANDIDATE_CARD_POSITION_XPATH = './/h2/a//text()'

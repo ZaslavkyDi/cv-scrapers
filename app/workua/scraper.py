@@ -5,7 +5,7 @@ from collections.abc import Awaitable
 from httpx import AsyncClient, Response
 
 from app.workua.config import get_workua_settings
-from app.workua.parsers import WorkUACandidatesPageParser
+from app.workua.parsers import WorkUACandidatesHtmlParser
 from app.workua.schemas.schemas import CandidatesPageResultSchema
 
 
@@ -21,7 +21,7 @@ class WorkUACandidatesScraper:
 
     def __init__(
         self,
-        parser: WorkUACandidatesPageParser,
+        parser: WorkUACandidatesHtmlParser,
         httpx_client: AsyncClient
     ) -> None:
         self._parser = parser
