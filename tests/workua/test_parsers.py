@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from app.workua.parsers import WorkUACandidatesPageParser
+from app.workua.parsers import WorkUACandidatesHtmlParser
 
 
 @pytest.fixture(scope="class")
@@ -14,15 +14,15 @@ def html_candidates_page_1() -> str:
 
 
 @pytest.fixture(scope="class")
-def work_ua_candidates_parser() -> WorkUACandidatesPageParser:
-    return WorkUACandidatesPageParser()
+def work_ua_candidates_parser() -> WorkUACandidatesHtmlParser:
+    return WorkUACandidatesHtmlParser()
 
 
-class TestWorkUACandidatesPageParser:
+class TestWorkUACandidatesHtmlParser:
 
     def test_parse_candidates(
         self,
-        work_ua_candidates_parser: WorkUACandidatesPageParser,
+        work_ua_candidates_parser: WorkUACandidatesHtmlParser,
         html_candidates_page_1: str,
     ) -> None:
         contains_expected_candidates: list[dict[str, Any]] = [
@@ -61,7 +61,7 @@ class TestWorkUACandidatesPageParser:
             }
         ]
 
-        result = work_ua_candidates_parser.parse(content=html_candidates_page_1, url=None)
+        result = work_ua_candidates_parser.parse(html_content=html_candidates_page_1, url=None)
 
         assert result.page_number == 1
         assert len(result.candidates) == 14
@@ -72,7 +72,7 @@ class TestWorkUACandidatesPageParser:
 
     def test_parse_last_page_number(
         self,
-        work_ua_candidates_parser: WorkUACandidatesPageParser,
+        work_ua_candidates_parser: WorkUACandidatesHtmlParser,
         html_candidates_page_1: str,
     ) -> None:
         expected_last_number = 23

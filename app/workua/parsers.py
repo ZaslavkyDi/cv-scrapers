@@ -5,8 +5,8 @@ from lxml import etree
 from lxml.etree import _Element as Element
 
 from app.common.parser_mixins import LxmlXpathMixin
+from app.common.schemas.candidates_result import CandidatesPageResultSchema, CandidateDetailsSchema
 from app.workua.config import get_workua_settings
-from app.workua.schemas.schemas import CandidatesPageResultSchema, WorkUACandidateSchema
 
 logger = getLogger(__name__)
 
@@ -34,7 +34,7 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
         )
         candidate_cards: list[Element] = root.xpath(self.CANDIDATE_CARD_XPATH)
 
-        candidates: list[WorkUACandidateSchema] = [
+        candidates: list[CandidateDetailsSchema] = [
             self._parse_candidate_card(card) for card in candidate_cards
         ]
         current_page_number = self._get_clean_text(
@@ -63,15 +63,12 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
 
         return numbers[-1]
 
-    def _parse_candidate_card(self, candidate_card: Element) -> WorkUACandidateSchema:
-        try:
-            cv_url: str = self._get_url(
-                element=candidate_card,
-                xpath=self.CANDIDATE_CARD_LINK_XPATH,
-                base=get_workua_settings().host,
-            )
-        except ValueError:
-            print()
+    def _parse_candidate_card(self, candidate_card: Element) -> CandidateDetailsSchema:
+        cv_url: str = self._get_url(
+            element=candidate_card,
+            xpath=self.CANDIDATE_CARD_LINK_XPATH,
+            base=get_workua_settings().host,
+        )
         position: str = self._get_text(element=candidate_card, xpath=self.CANDIDATE_CARD_POSITION_XPATH)
         name: str = self._get_text(element=candidate_card, xpath=self.CANDIDATE_CARD_NAME_XPATH)
 
@@ -88,7 +85,7 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
             xpath=self.CANDIDATE_CARD_LOCATION_XPATH
         )
 
-        return WorkUACandidateSchema(
+        return CandidateDetailsSchema(
             cv_url=cv_url,
             position=position,
             name=name,
