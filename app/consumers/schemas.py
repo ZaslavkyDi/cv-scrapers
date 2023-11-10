@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, UUID4
+from pydantic import UUID4, BaseModel, Field
 
 from app.common.enums import ScraperSourceName
 
@@ -19,4 +19,3 @@ class CandidateRequestMessageBodySchema(BaseModel):
 
 class CandidateRequestIncomingMessageSchema(MessageSchema):
     body: CandidateRequestMessageBodySchema
-

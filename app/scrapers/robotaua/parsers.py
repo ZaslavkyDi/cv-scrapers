@@ -1,7 +1,6 @@
 from logging import getLogger
 
-
-from app.common.schemas.candidates_result import CandidatesPageResultSchema, CandidateDetailsSchema
+from app.common.schemas.candidates_result import CandidateDetailsSchema, CandidatesPageResultSchema
 from app.scrapers.robotaua.config import get_robotaua_settings
 from app.scrapers.robotaua.schemas.response import ResumeSearchResponsePayload
 
@@ -9,8 +8,9 @@ logger = getLogger(__name__)
 
 
 class RobotaUACandidatesJsonParser:
-
-    def parse(self, json_content: str, page_number: int | None = None) -> CandidatesPageResultSchema:
+    def parse(
+        self, json_content: str, page_number: int | None = None
+    ) -> CandidatesPageResultSchema:
         page_result = ResumeSearchResponsePayload.model_validate_json(json_data=json_content)
 
         candidates: list[CandidateDetailsSchema] = []
@@ -23,7 +23,7 @@ class RobotaUACandidatesJsonParser:
                     name=doc.display_name,
                     compensation=doc.salary,
                     age=self._parse_age(raw_age=doc.age),
-                    location=doc.city_name
+                    location=doc.city_name,
                 )
             )
 

@@ -1,7 +1,7 @@
 import asyncio
 
-from app.scrapers.workua.executor import WorkUAExecutor
 from app.scrapers.robotaua import RobotaUAExecutor
+from app.scrapers.workua.executor import WorkUAExecutor
 
 
 async def workau_main() -> None:
@@ -14,5 +14,5 @@ async def robotaua_main() -> None:
     await runner.run(position="Менеджер")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(robotaua_main())

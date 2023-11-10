@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from app.scrapers.robotaua.config.enums import SearchPeriod
 

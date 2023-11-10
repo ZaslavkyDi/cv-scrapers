@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class WorkUAScraperSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix='workua_')
+    model_config = SettingsConfigDict(env_prefix="workua_")
 
     host: HttpUrl = "https://www.work.ua"
 

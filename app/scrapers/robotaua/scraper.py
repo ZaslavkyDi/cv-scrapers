@@ -20,14 +20,9 @@ class FirstPageResult:
 
 
 class RobotaUACandidatesScraper:
-
     RESUME_SEARCH_URL: str = str(get_robotaua_settings().search_url)
 
-    def __init__(
-        self,
-        parser: RobotaUACandidatesJsonParser,
-        httpx_client: AsyncClient
-    ) -> None:
+    def __init__(self, parser: RobotaUACandidatesJsonParser, httpx_client: AsyncClient) -> None:
         self._parser = parser
         self._httpx_client = httpx_client
 
@@ -44,12 +39,7 @@ class RobotaUACandidatesScraper:
 
         coros: list[Awaitable[CandidatesPageResultSchema]] = []
         for page_number in range(1, last_page_number):
-            coros.append(
-                self.scrape_page(
-                    position=position_title,
-                    page_number=page_number
-                )
-            )
+            coros.append(self.scrape_page(position=position_title, page_number=page_number))
 
         coro_result = await asyncio.gather(*coros)
         candidates_pages_result.extend(coro_result)
@@ -67,10 +57,7 @@ class RobotaUACandidatesScraper:
         )
         response.raise_for_status()
 
-        return self._parser.parse(
-            json_content=response.text,
-            page_number=page_number
-        )
+        return self._parser.parse(json_content=response.text, page_number=page_number)
 
     async def _scrape_first_page(self, position: str) -> FirstPageResult:
         page_number = 0

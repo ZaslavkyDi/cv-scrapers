@@ -1,4 +1,4 @@
-from aio_pika import connect, Connection, Channel, ExchangeType
+from aio_pika import Channel, Connection, ExchangeType, connect
 
 from app.message_broker.congif import get_rabbitmq_settings
 
@@ -50,12 +50,8 @@ async def __init_channel() -> None:
     __CHANNEL = await connection.channel()
 
     __CHANNEL.default_exchange = await __CHANNEL.declare_exchange(
-        name=get_rabbitmq_settings().exchange_name,
-        type=ExchangeType.TOPIC,
-        durable=True
+        name=get_rabbitmq_settings().exchange_name, type=ExchangeType.TOPIC, durable=True
     )
     __CHANNEL.dlq_default_exchange = await __CHANNEL.declare_exchange(
-        name=get_rabbitmq_settings().dlq_exchange_name,
-        type=ExchangeType.TOPIC,
-        durable=True
+        name=get_rabbitmq_settings().dlq_exchange_name, type=ExchangeType.TOPIC, durable=True
     )

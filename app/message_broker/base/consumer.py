@@ -4,7 +4,7 @@ import typing
 from aio_pika import Channel
 from aio_pika.abc import AbstractIncomingMessage
 
-from app.message_broker.base.connection import get_rabbitmq_channel, get_rabbitmq_connection
+from app.message_broker.base.connection import get_rabbitmq_channel
 from app.message_broker.congif import get_rabbitmq_settings
 
 
@@ -21,9 +21,7 @@ async def consume_events(
 
     # Declare DLQ queue for failed letters
     await channel.declare_queue(
-        dlq_name,
-        durable=True,
-        arguments={"x-max-length": get_rabbitmq_settings().dlq_max_length}
+        dlq_name, durable=True, arguments={"x-max-length": get_rabbitmq_settings().dlq_max_length}
     )
 
     queue_dead_letter_params: dict[str, typing.Any] | None = None
@@ -31,9 +29,7 @@ async def consume_events(
         queue_dead_letter_params = _generate_queue_dead_letter_queue_params(queue_name)
 
     queue = await channel.declare_queue(
-        queue_name,
-        durable=True,
-        arguments=queue_dead_letter_params
+        queue_name, durable=True, arguments=queue_dead_letter_params
     )
 
     await asyncio.gather(

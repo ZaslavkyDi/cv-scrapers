@@ -16,14 +16,9 @@ class FirstPageResult:
 
 
 class WorkUACandidatesScraper:
-
     HOST: str = str(get_workua_settings().host)
 
-    def __init__(
-        self,
-        parser: WorkUACandidatesHtmlParser,
-        httpx_client: AsyncClient
-    ) -> None:
+    def __init__(self, parser: WorkUACandidatesHtmlParser, httpx_client: AsyncClient) -> None:
         self._parser = parser
         self._httpx_client = httpx_client
 
@@ -31,11 +26,13 @@ class WorkUACandidatesScraper:
         search_response = await self._get_url_by_position_response(title=position_title)
 
         if not search_response.next_request:
-            raise ValueError(f"Can not find positions URL for candidates.")
+            raise ValueError("Can not find positions URL for candidates.")
 
         base_position_url = search_response.next_request.url
 
-        first_page_result: FirstPageResult = await self._scrape_first_page(base_url=base_position_url)
+        first_page_result: FirstPageResult = await self._scrape_first_page(
+            base_url=base_position_url
+        )
         last_page_number = first_page_result.last_page_number
         candidates_pages_result = [first_page_result.page_result]
 
@@ -44,12 +41,7 @@ class WorkUACandidatesScraper:
 
         coros: list[Awaitable[CandidatesPageResultSchema]] = []
         for page_number in range(2, last_page_number + 1):
-            coros.append(
-                self.scrape_page(
-                    base_url=base_position_url,
-                    page_number=page_number
-                )
-            )
+            coros.append(self.scrape_page(base_url=base_position_url, page_number=page_number))
 
         coro_result = await asyncio.gather(*coros)
         candidates_pages_result.extend(coro_result)
@@ -89,7 +81,4 @@ class WorkUACandidatesScraper:
             url=url,
         )
 
-        return FirstPageResult(
-            page_result=page_result,
-            last_page_number=last_page_number
-        )
+        return FirstPageResult(page_result=page_result, last_page_number=last_page_number)

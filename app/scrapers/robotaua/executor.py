@@ -9,7 +9,6 @@ from app.scrapers.robotaua.scraper import RobotaUACandidatesScraper
 
 
 class RobotaUAExecutor(BaseAsyncExecutor):
-
     async def run(self, position: str, **kwargs: Any) -> list[CandidatesPageResultSchema]:
         async with httpx.AsyncClient() as client:
             scraper = RobotaUACandidatesScraper(

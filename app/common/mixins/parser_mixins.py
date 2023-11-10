@@ -5,17 +5,16 @@ from lxml.etree import _Element as Element
 
 
 class LxmlXpathMixin:
-
     def _get_text(self, element: Element, xpath: str) -> str:
         if not xpath.endswith("/text()"):
-            raise ValueError(f"To use this function the given XPATH has to end on '/text()'")
+            raise ValueError("To use this function the given XPATH has to end on '/text()'")
 
         results: list[str] = element.xpath(xpath)
         return " ".join(results)
 
     def _get_url(self, element: Element, xpath: str, base: str = "") -> str:
         if not xpath.endswith("@href"):
-            raise ValueError(f"To use this function the given XPATH has to end on '@href'")
+            raise ValueError("To use this function the given XPATH has to end on '@href'")
 
         results: list[str] = element.xpath(xpath)
         if not results:

@@ -27,13 +27,12 @@ async def publish_message(
 
 
 async def main() -> None:
-    message = {
-        "1": "2"
-    }
+    message = {"1": "2"}
 
-    await publish_message(message=message, routing_key='test_r')
+    await publish_message(message=message, routing_key="test_r")
 
-    print(f" [x] Sent ")
+    print(" [x] Sent ")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     asyncio.run(main())

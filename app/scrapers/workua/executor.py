@@ -9,7 +9,6 @@ from app.scrapers.workua.scraper import WorkUACandidatesScraper
 
 
 class WorkUAExecutor(BaseAsyncExecutor):
-
     async def run(self, position: str, **kwargs: Any) -> list[CandidatesPageResultSchema]:
         async with httpx.AsyncClient() as client:
             scraper = WorkUACandidatesScraper(

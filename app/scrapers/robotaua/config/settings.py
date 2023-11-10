@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class RobotaUAScraperSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix='robotaua_')
+    model_config = SettingsConfigDict(env_prefix="robotaua_")
 
     api_host: HttpUrl = "https://employer-api.robota.ua"
 

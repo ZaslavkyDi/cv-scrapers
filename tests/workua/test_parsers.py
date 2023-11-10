@@ -7,9 +7,7 @@ from app.scrapers.workua.parsers import WorkUACandidatesHtmlParser
 
 @pytest.fixture(scope="class")
 def html_candidates_page_1() -> str:
-    with open(
-            "../tests/resources/workua/candidates_page_1.html", 'r'
-    ) as file:
+    with open("../tests/resources/workua/candidates_page_1.html") as file:
         yield file.read()
 
 
@@ -19,7 +17,6 @@ def work_ua_candidates_parser() -> WorkUACandidatesHtmlParser:
 
 
 class TestWorkUACandidatesHtmlParser:
-
     def test_parse_candidates(
         self,
         work_ua_candidates_parser: WorkUACandidatesHtmlParser,
@@ -27,38 +24,45 @@ class TestWorkUACandidatesHtmlParser:
     ) -> None:
         contains_expected_candidates: list[dict[str, Any]] = [
             {
-                'cv_url': 'https://www.work.ua/resumes/8052197/',
-                'position': 'Менеджер\n\t\t\t\t\t\t\t\t\t\t\tз продажу, помічник\n\t\t\t\t\t\t\t\t\t\t\tкерівника',
-                'name': 'Олеся', 'compensation': None, 'age': 28, 'location': 'Чернівці'
+                "cv_url": "https://www.work.ua/resumes/8052197/",
+                "position": "Менеджер\n\t\t\t\t\t\t\t\t\t\t\tз продажу, помічник\n\t\t\t\t\t\t\t\t\t\t\tкерівника",
+                "name": "Олеся",
+                "compensation": None,
+                "age": 28,
+                "location": "Чернівці",
             },
             {
-                'cv_url': 'https://www.work.ua/resumes/10159664/',
-                'position': 'Консультант з\n\t\t\t\t\t\t\t\t\t\t\tпродажу',
-                'name': 'Дмитро',
-                'compensation': None,
-                'age': 18,
-                'location': 'Чернівці'
+                "cv_url": "https://www.work.ua/resumes/10159664/",
+                "position": "Консультант з\n\t\t\t\t\t\t\t\t\t\t\tпродажу",
+                "name": "Дмитро",
+                "compensation": None,
+                "age": 18,
+                "location": "Чернівці",
             },
             {
-                'cv_url': 'https://www.work.ua/resumes/9199274/',
-                'position': 'Менеджер з\n\t\t\t\t\t\t\t\t\t\t\tпродажу',
-                'name': 'Віктор', 'compensation': '15000 грн', 'age': 20,
-                'location': 'Чернівці, Інші країни, Дистанційно'
+                "cv_url": "https://www.work.ua/resumes/9199274/",
+                "position": "Менеджер з\n\t\t\t\t\t\t\t\t\t\t\tпродажу",
+                "name": "Віктор",
+                "compensation": "15000 грн",
+                "age": 20,
+                "location": "Чернівці, Інші країни, Дистанційно",
             },
             {
-                'cv_url': 'https://www.work.ua/resumes/8677876/',
-                'position': 'Менеджер по\n\t\t\t\t\t\t\t\t\t\t\tпродажам',
-                'name': 'Ірина', 'compensation': None,
-                'age': 35, 'location': 'Чернівці'
+                "cv_url": "https://www.work.ua/resumes/8677876/",
+                "position": "Менеджер по\n\t\t\t\t\t\t\t\t\t\t\tпродажам",
+                "name": "Ірина",
+                "compensation": None,
+                "age": 35,
+                "location": "Чернівці",
             },
             {
-                'cv_url': 'https://www.work.ua/resumes/7638972/',
-                'position': 'Менеджер по\n\t\t\t\t\t\t\t\t\t\t\tобработке\n\t\t\t\t\t\t\t\t\t\t\tзаказов',
-                'name': 'Аліна',
-                'compensation': '13000 грн',
-                'age': 18,
-                'location': 'Чернівці'
-            }
+                "cv_url": "https://www.work.ua/resumes/7638972/",
+                "position": "Менеджер по\n\t\t\t\t\t\t\t\t\t\t\tобработке\n\t\t\t\t\t\t\t\t\t\t\tзаказов",
+                "name": "Аліна",
+                "compensation": "13000 грн",
+                "age": 18,
+                "location": "Чернівці",
+            },
         ]
 
         result = work_ua_candidates_parser.parse(html_content=html_candidates_page_1, url=None)
@@ -77,7 +81,8 @@ class TestWorkUACandidatesHtmlParser:
     ) -> None:
         expected_last_number = 23
         result = work_ua_candidates_parser.parse_last_page_number(
-            content=html_candidates_page_1, url=None,
+            content=html_candidates_page_1,
+            url=None,
         )
 
         assert result == expected_last_number

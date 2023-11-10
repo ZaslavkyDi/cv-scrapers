@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import time
-from typing import Type, Awaitable
+from collections.abc import Awaitable
 
 from aio_pika.abc import AbstractIncomingMessage
 
@@ -18,10 +18,9 @@ logger = logging.getLogger(__name__)
 
 
 class CandidatesRequestConsumer:
-
     _QUEUE_NAME = "cv-scrapers.candidates.request"
     _ROUTING_KEYS: tuple[str, ...] = ("candidates.request.scrape.v1",)
-    _SCRAPER_EXECUTORS: dict[ScraperSourceName, Type[BaseAsyncExecutor]] = {
+    _SCRAPER_EXECUTORS: dict[ScraperSourceName, type[BaseAsyncExecutor]] = {
         ScraperSourceName.robotaua: RobotaUAExecutor,
         ScraperSourceName.workua: WorkUAExecutor,
     }
@@ -41,15 +40,19 @@ class CandidatesRequestConsumer:
     async def _process_event(self, message: AbstractIncomingMessage) -> None:
         async with message.process(ignore_processed=True):
             try:
-                message_model = CandidateRequestIncomingMessageSchema.model_validate_json(message.body)
+                message_model = CandidateRequestIncomingMessageSchema.model_validate_json(
+                    message.body
+                )
                 await self._initiate_scraping(message_model)
             except Exception as e:
-                logger.exception(f"Error in {self._QUEUE_NAME}: {str(e)}")
+                logger.exception(f"Error in {self._QUEUE_NAME}: {e!s}")
                 await message.nack(requeue=False)
             else:
                 await message.ack()
 
-    async def _initiate_scraping(self, message_model: CandidateRequestIncomingMessageSchema) -> None:
+    async def _initiate_scraping(
+        self, message_model: CandidateRequestIncomingMessageSchema
+    ) -> None:
         start_t = time.time()
         coros: list[Awaitable[None]] = []
 
@@ -107,6 +110,7 @@ async def main() -> None:
         connection = await get_rabbitmq_connection()
         await connection.close()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     init_logging()
     asyncio.run(main())

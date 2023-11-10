@@ -4,7 +4,7 @@ from app.common.schemas.validators import NotEmptyNullableString
 
 
 class CandidateData(BaseModel):
-    model_config = ConfigDict(populate_by_name=True, extra='ignore')
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
     resume_id: int = Field(..., alias="resumeId")
     speciality: str
@@ -15,7 +15,7 @@ class CandidateData(BaseModel):
 
 
 class ResumeSearchResponsePayload(BaseModel):
-    model_config = ConfigDict(populate_by_name=True, extra='ignore')
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
     total: int
     total_full: int = Field(..., alias="totalFull")
