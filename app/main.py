@@ -1,7 +1,7 @@
 import asyncio
 
-from app.workua.process_executor import WorkUAExecutor
-from app.robotaua.process_executor import RobotaUAExecutor
+from app.scrapers.workua.executor import WorkUAExecutor
+from app.scrapers.robotaua import RobotaUAExecutor
 
 
 async def workau_main() -> None:

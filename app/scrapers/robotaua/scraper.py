@@ -6,11 +6,10 @@ from collections.abc import Awaitable
 from httpx import AsyncClient, Response
 
 from app.common.schemas.candidates_result import CandidatesPageResultSchema
-from app.robotaua.config import get_robotaua_settings
-from app.robotaua.config.enums import CityId
-from app.robotaua.parsers import RobotaUACandidatesJsonParser
-from app.robotaua.schemas.request import ResumeSearchRequestPayload
-from app.workua.config import get_workua_settings
+from app.scrapers.robotaua.config import get_robotaua_settings
+from app.scrapers.robotaua.config.enums import CityId
+from app.scrapers.robotaua.parsers import RobotaUACandidatesJsonParser
+from app.scrapers.robotaua.schemas.request import ResumeSearchRequestPayload
 
 
 @dataclasses.dataclass

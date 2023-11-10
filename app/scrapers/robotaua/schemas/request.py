@@ -2,7 +2,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, ConfigDict
 
-from app.robotaua.config.enums import SearchPeriod, CityId
+from app.scrapers.robotaua.config.enums import SearchPeriod
 
 
 class ResumeSearchRequestPayload(BaseModel):

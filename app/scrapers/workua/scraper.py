@@ -5,8 +5,8 @@ from collections.abc import Awaitable
 from httpx import AsyncClient, Response
 
 from app.common.schemas.candidates_result import CandidatesPageResultSchema
-from app.workua.config import get_workua_settings
-from app.workua.parsers import WorkUACandidatesHtmlParser
+from app.scrapers.workua.config import get_workua_settings
+from app.scrapers.workua.parsers import WorkUACandidatesHtmlParser
 
 
 @dataclasses.dataclass

@@ -12,9 +12,40 @@ pydantic = "^2.4.2"
 pytest = "^7.4.3"
 pydantic-settings = "^2.0.3"
 requests = "^2.31.0"
+aio-pika = "^9.3.0"
+black = "^23.11.0"
+ruff = "^0.1.5"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# Linters
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+select = [
+    "I",  # isort
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+    "F",  # pyflakes
+    "E",  # pycodestyle
+    "TID",  # flake8-tidy-imports
+    "RUF", # ruff-internal
+    "C901", # mccabe
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "C401",  # generator syntax for sets vs always force set comprehension
+    "PLC0414",  # allow explicit re-exports using 'as' without forcing __all__
+]
+
+    [tool.ruff.isort]
+    known-first-party = ["app", "tests"]

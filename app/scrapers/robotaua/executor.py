@@ -1,18 +1,20 @@
+from typing import Any
+
 import httpx
 
 from app.common.schemas.candidates_result import CandidatesPageResultSchema
-from app.robotaua.parsers import RobotaUACandidatesJsonParser
-from app.robotaua.scraper import RobotaUACandidatesScraper
+from app.scrapers.base.executor import BaseAsyncExecutor
+from app.scrapers.robotaua.parsers import RobotaUACandidatesJsonParser
+from app.scrapers.robotaua.scraper import RobotaUACandidatesScraper
 
 
-class RobotaUAExecutor:
+class RobotaUAExecutor(BaseAsyncExecutor):
 
-    async def run(self, position: str) -> None:
+    async def run(self, position: str, **kwargs: Any) -> list[CandidatesPageResultSchema]:
         async with httpx.AsyncClient() as client:
             scraper = RobotaUACandidatesScraper(
                 parser=RobotaUACandidatesJsonParser(),
                 httpx_client=client,
             )
             result: list[CandidatesPageResultSchema] = await scraper.scrape(position)
-            print(len(result))
-            print(result[-1])
+            return result

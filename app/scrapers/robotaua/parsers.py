@@ -2,8 +2,8 @@ from logging import getLogger
 
 
 from app.common.schemas.candidates_result import CandidatesPageResultSchema, CandidateDetailsSchema
-from app.robotaua.config import get_robotaua_settings
-from app.robotaua.schemas.response import ResumeSearchResponsePayload
+from app.scrapers.robotaua.config import get_robotaua_settings
+from app.scrapers.robotaua.schemas.response import ResumeSearchResponsePayload
 
 logger = getLogger(__name__)
 

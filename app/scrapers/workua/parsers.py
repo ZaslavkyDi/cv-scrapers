@@ -4,9 +4,9 @@ from logging import getLogger
 from lxml import etree
 from lxml.etree import _Element as Element
 
-from app.common.parser_mixins import LxmlXpathMixin
+from app.common.mixins.parser_mixins import LxmlXpathMixin
 from app.common.schemas.candidates_result import CandidatesPageResultSchema, CandidateDetailsSchema
-from app.workua.config import get_workua_settings
+from app.scrapers.workua.config import get_workua_settings
 
 logger = getLogger(__name__)
 
