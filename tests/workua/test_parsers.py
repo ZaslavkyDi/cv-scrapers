@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from app.scrapers.workua.parsers import WorkUACandidatesHtmlParser
+from cv_scrapers.scrapers.workua.parsers import WorkUACandidatesHtmlParser
 
 
 @pytest.fixture(scope="class")
