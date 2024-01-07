@@ -293,7 +293,7 @@ schema-registry = ["requests"]
 
 [[package]]
 name = "cv-common-library"
-version = "0.4.2"
+version = "0.4.3"
 description = ""
 optional = false
 python-versions = "^3.12"
@@ -314,7 +314,7 @@ ruff = "^0.1.5"
 type = "git"
 url = "https://github.com/ZaslavkyDi/cv-common-library.git"
 reference = "main"
-resolved_reference = "f598ffcaaaf87f2761ee7d847115a7d6c73b1b76"
+resolved_reference = "e8fb352a0dc47156e227f8e97cbdf566cd76bd3c"
 
 [[package]]
 name = "h11"
