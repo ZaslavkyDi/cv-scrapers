@@ -4,7 +4,7 @@ from cv_scrapers.common.enums import ScraperSourceName
 
 
 class MetadataSchema(BaseModel):
-    request_id: UUID4
+    request_id: UUID4 | None = None
 
 
 class MessageSchema(BaseModel):

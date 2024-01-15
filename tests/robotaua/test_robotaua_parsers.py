@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from cv_scrapers.scrapers.robotaua import RobotaUACandidatesJsonParser
+from cv_scrapers.scrapers.robotaua.parsers import RobotaUACandidatesJsonParser
 
 
 @pytest.fixture(scope="class")

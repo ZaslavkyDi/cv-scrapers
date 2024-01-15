@@ -1,16 +1,14 @@
 import asyncio
 import logging
-import time
 from collections.abc import Awaitable
 
-from aio_pika.abc import AbstractIncomingMessage
 from confluent_kafka import Message
+from cv_common_library.message_brokers.kafka.base import kafka_consumer_settings
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
 
 from cv_scrapers.common.enums import ScraperSourceName
 from cv_scrapers.common.logger import init_logging
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
-from cv_scrapers.message_broker.base import consumer
 from cv_scrapers.message_broker.base.connection import get_rabbitmq_connection
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
@@ -37,9 +35,8 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
 
     async def process_message(self, message: Message) -> None:
         try:
-            message_model = CandidateRequestIncomingMessageSchema.model_validate_json(
-                message.body
-            )
+            payload = message.value()
+            message_model = CandidateRequestIncomingMessageSchema.model_validate_json(payload)
             await self._initiate_scraping(message_model)
         except Exception as e:
             logger.exception(f"Error in {self.topics}: {e!s}")
@@ -91,12 +88,8 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
 async def main() -> None:
     consumer = CandidatesRequestConsumerKafka()
 
-    try:
-        await consumer.start_consuming()
-        await asyncio.Future()
-    finally:
-        connection = await get_rabbitmq_connection()
-        await connection.close()
+    await consumer.start_consuming()
+    await asyncio.Future()
 
 
 if __name__ == "__main__":

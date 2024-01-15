@@ -5,7 +5,10 @@ from lxml import etree
 from lxml.etree import _Element as Element
 
 from cv_scrapers.common.mixins.parser_mixins import LxmlXpathMixin
-from cv_scrapers.common.schemas.candidates_result import CandidateDetailsSchema, CandidatesPageResultSchema
+from cv_scrapers.common.schemas.candidates_result import (
+    CandidateDetailsSchema,
+    CandidatesPageResultSchema,
+)
 from cv_scrapers.scrapers.workua.config import get_workua_settings
 
 logger = getLogger(__name__)

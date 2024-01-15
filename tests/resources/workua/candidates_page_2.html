@@ -1,0 +1,1188 @@
+<style>
+.container-absolute {
+position: fixed !important;
+}
+</style>
+<div class="container">
+<input type="hidden" id="search-helper" value="менеджер з продажу">
+<input type="hidden" id="period-helper" value="4">
+<input type="hidden" id="sort-helper" value="">
+<input type="hidden" id="f1-helper" value="1">
+<input type="hidden" id="f2-helper" value="1">
+<input type="hidden" id="f3-helper" value="">
+<input type="hidden" id="city-helper" value="Чернівці">
+<input type="hidden" id="city-id-helper" value="57">
+<input type="hidden" id="category-helper" value="">
+
+<div class="hidden" id="city-header-helper">
+
+
+
+</div>
+
+<div class="clearfix h-20"></div>
+
+
+
+<div class="row">
+            <div class="col-md-4 hidden-xs hidden-sm hidden-print">
+                <form autocomplete="off">
+                    <div id="filter-wrapper">
+                        <div id="filters-block">
+                            <div class="filters-block">
+                                <div class="disconnect-alert">
+<div class="alert alert-warning text-center add-bottom">
+<p><span class="glyphicon glyphicon-warning-sign text-warning"></span></p>
+<p>Здається, у вас пропав інтернет.<br>Все знову запрацює, коли він з'явиться.</p>
+</div>
+</div>
+<div class="loading-block hidden"></div>
+<div class="filters-controls filters-controls-resumes add-top-8 cut-top-sm">
+<div class="filters-controls-container">
+        <div class="flex flex-justify-between flex-align-center add-top add-bottom hidden-md hidden-lg">
+            <div class="flex flex-align-center">
+                <span class="glyphicon glyphicon-filters glyphicon-fs-24 glyphicon-top add-right-xs"></span>
+                <span>Розширений фільтр</span>
+            </div>
+            <a href="javascript:;" class="link-close line-height-default" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+
+
+<div class="form-group cut-top">
+<label class="h5 cut-top add-bottom">Категорія</label>
+<div id="category_selection">
+<div class="checkbox  ">
+<label>
+                        <input type="checkbox" value="22"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-sales-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Продаж, закупівля</a><span class="text-default-7 add-left-sm">345</span>
+                    </label>
+</div>
+<div class="checkbox  ">
+<label>
+                        <input type="checkbox" value="2"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-administration-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Адмiнiстрацiя, керівництво середньої ланки</a><span class="text-default-7 add-left-sm">16</span>
+                    </label>
+</div>
+<div class="checkbox  ">
+<label>
+                        <input type="checkbox" value="1"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-it-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">IT, комп&#039;ютери, інтернет</a><span class="text-default-7 add-left-sm">9</span>
+                    </label>
+</div>
+<div class="checkbox  ">
+<label>
+                        <input type="checkbox" value="9"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-marketing-advertising-pr-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Маркетинг, реклама, PR</a><span class="text-default-7 add-left-sm">9</span>
+                    </label>
+</div>
+<div class="checkbox  ">
+<label>
+                        <input type="checkbox" value="21"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-management-executive-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Топменеджмент, керівництво вищої ланки</a><span class="text-default-7 add-left-sm">5</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="8"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-logistic-supply-chain-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Логістика, склад, ЗЕД</a><span class="text-default-7 add-left-sm">4</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="23"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-retail-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Роздрібна торгівля</a><span class="text-default-7 add-left-sm">4</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="20"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-customer-service-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Сфера обслуговування</a><span class="text-default-7 add-left-sm">4</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="4"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-hotel-restaurant-tourism-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Готельно-ресторанний бізнес, туризм</a><span class="text-default-7 add-left-sm">3</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="6792"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-telecommunications-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Телекомунікації та зв&#039;язок</a><span class="text-default-7 add-left-sm">3</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="15"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-office-secretarial-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Секретаріат, діловодство, АГВ</a><span class="text-default-7 add-left-sm">3</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="11"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-real-estate-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Нерухомість</a><span class="text-default-7 add-left-sm">2</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="12"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-education-scientific-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Освіта, наука</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="17"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-publishing-media-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">ЗМІ, видавництво, поліграфія</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="6"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-beauty-sports-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Краса, фітнес, спорт</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="10"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-healthcare-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Медицина, фармацевтика</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="14"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-production-engineering-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Робочі спеціальності, виробництво</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+<div class="checkbox hide ">
+<label>
+                        <input type="checkbox" value="24"  >
+                        <a tabindex="-1" href="/resumes-chernivtsi_cv-auto-transport-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80+%D0%B7+%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D1%83/" class="filter-link catlink text-default no-decoration">Транспорт, автобізнес</a><span class="text-default-7 add-left-sm">1</span>
+                    </label>
+</div>
+</div>
+                <a class="inline-block" href="#" id="cat_more">
+                    Усі категорії<span class="glyphicon glyphicon-chevron-down glyphicon-fs-24 glyphicon-top line-height-basic align-bottom"></span>
+                </a>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Вид зайнятості</label>
+<div id="employment_selection">
+                                <div class="checkbox ">
+<label>
+                        <input type="checkbox" value="74"  >
+                        <span>Повна</span><span class="text-default-7 add-left-sm">156</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="75"  >
+                        <span>Неповна</span><span class="text-default-7 add-left-sm">98</span>
+                    </label>
+</div>
+</div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom-sm">Вік</label>
+            <div class="flex flex-align-center add-top-sm">
+                <span class="small add-right-sm">від</span>
+                <select class="form-control" id="agefrom_selection">
+                    <option value="0">будь-який</option>
+                                                                                <option value="14" >14 (281)</option>
+                                                                                <option value="15" >15 (280)</option>
+                                                                                <option value="16" >16 (279)</option>
+                                                                                <option value="17" >17 (276)</option>
+                                                                                <option value="18" >18 (272)</option>
+                                                                                <option value="19" >19 (253)</option>
+                                                                                <option value="20" >20 (231)</option>
+                                                                                <option value="21" >21 (211)</option>
+                                                                                <option value="22" >22 (191)</option>
+                                                                                <option value="23" >23 (168)</option>
+                                                                                <option value="24" >24 (149)</option>
+                                                                                <option value="25" >25 (135)</option>
+                                                                                <option value="26" >26 (122)</option>
+                                                                                <option value="27" >27 (111)</option>
+                                                                                <option value="28" >28 (102)</option>
+                                                                                <option value="29" >29 (97)</option>
+                                                                                <option value="30" >30 (87)</option>
+                                                                                <option value="31" >31 (77)</option>
+                                                                                <option value="32" >32 (69)</option>
+                                                                                <option value="33" >33 (60)</option>
+                                                                                <option value="34" >34 (59)</option>
+                                                                                <option value="35" >35 (54)</option>
+                                                                                <option value="36" >36 (51)</option>
+                                                                                <option value="37" >37 (47)</option>
+                                                                                <option value="38" >38 (40)</option>
+                                                                                <option value="39" >39 (38)</option>
+                                                                                <option value="40" >40 (28)</option>
+                                                                                <option value="41" >41 (26)</option>
+                                                                                <option value="42" >42 (23)</option>
+                                                                                <option value="43" >43 (20)</option>
+                                                                                <option value="44" >44 (13)</option>
+                                                                                <option value="45" >45 (12)</option>
+                                                                                <option value="46" >46 (11)</option>
+                                                                                <option value="47" >47 (10)</option>
+                                                                                <option value="48" >48 (6)</option>
+                                                                                                                        <option value="50" >50 (5)</option>
+                                                                                                                                                                <option value="53" >53 (4)</option>
+                                                                                <option value="54" >54 (3)</option>
+                                                                                <option value="55" >55 (2)</option>
+                                                                                <option value="56" >56 (1)</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                </select>
+            </div>
+            <div class="flex flex-align-center add-top-sm">
+                <span class="small add-right-sm">до</span>
+                <select class="form-control" id="ageto_selection">
+                    <option value="0">будь-який</option>
+                                                                                <option value="15" >15 (2)</option>
+                                                                                <option value="16" >16 (5)</option>
+                                                                                <option value="17" >17 (9)</option>
+                                                                                <option value="18" >18 (28)</option>
+                                                                                <option value="19" >19 (50)</option>
+                                                                                <option value="20" >20 (70)</option>
+                                                                                <option value="21" >21 (90)</option>
+                                                                                <option value="22" >22 (113)</option>
+                                                                                <option value="23" >23 (132)</option>
+                                                                                <option value="24" >24 (146)</option>
+                                                                                <option value="25" >25 (159)</option>
+                                                                                <option value="26" >26 (170)</option>
+                                                                                <option value="27" >27 (179)</option>
+                                                                                <option value="28" >28 (184)</option>
+                                                                                <option value="29" >29 (194)</option>
+                                                                                <option value="30" >30 (204)</option>
+                                                                                <option value="31" >31 (212)</option>
+                                                                                <option value="32" >32 (221)</option>
+                                                                                <option value="33" >33 (222)</option>
+                                                                                <option value="34" >34 (227)</option>
+                                                                                <option value="35" >35 (230)</option>
+                                                                                <option value="36" >36 (234)</option>
+                                                                                <option value="37" >37 (241)</option>
+                                                                                <option value="38" >38 (243)</option>
+                                                                                <option value="39" >39 (253)</option>
+                                                                                <option value="40" >40 (255)</option>
+                                                                                <option value="41" >41 (258)</option>
+                                                                                <option value="42" >42 (261)</option>
+                                                                                <option value="43" >43 (268)</option>
+                                                                                <option value="44" >44 (269)</option>
+                                                                                <option value="45" >45 (270)</option>
+                                                                                <option value="46" >46 (271)</option>
+                                                                                <option value="47" >47 (275)</option>
+                                                                                <option value="48" >48 (276)</option>
+                                                                                                                                                                <option value="51" >51 (277)</option>
+                                                                                                                                                                <option value="54" >54 (279)</option>
+                                                                                <option value="55" >55 (280)</option>
+                                                                                <option value="56" >56 (281)</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                </select>
+            </div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Стать</label>
+<div id="gender_selection">
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="86"  >
+                        <span>Чоловік</span><span class="text-default-7 add-left-sm">141</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="87"  >
+                        <span>Жінка</span><span class="text-default-7 add-left-sm">210</span>
+                    </label>
+</div>
+</div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom-sm">Зарплата</label>
+            <div class="flex flex-align-center add-top-sm">
+                <span class="small add-right-sm">від</span>
+                <select class="form-control" id="salaryfrom_selection">
+                    <option value="0">будь-яка</option>
+                                                            <option value="6" >
+                    6 000 грн (105)</option>
+                                        <option value="8" >
+                    8 000 грн (103)</option>
+                                        <option value="10" >
+                    10 000 грн (102)</option>
+                                        <option value="11" >
+                    15 000 грн (81)</option>
+                                        <option value="12" >
+                    20 000 грн (51)</option>
+                                        <option value="13" >
+                    25 000 грн (26)</option>
+                                        <option value="14" >
+                    30 000 грн (14)</option>
+                                        <option value="15" >
+                    40 000 грн (3)</option>
+                                        <option value="16" >
+                    50 000 грн (2)</option>
+                                                        </select>
+            </div>
+            <div class="flex flex-align-center add-top-sm">
+                <span class="small add-right-sm">до</span>
+                <select class="form-control" id="salaryto_selection">
+                    <option value="0">будь-яка</option>
+                                                            <option value="6" >
+                    6 000 грн (2)</option>
+                                        <option value="8" >
+                    8 000 грн (3)</option>
+                                        <option value="10" >
+                    10 000 грн (15)</option>
+                                        <option value="11" >
+                    15 000 грн (43)</option>
+                                        <option value="12" >
+                    20 000 грн (77)</option>
+                                        <option value="13" >
+                    25 000 грн (91)</option>
+                                        <option value="14" >
+                    30 000 грн (100)</option>
+                                        <option value="15" >
+                    40 000 грн (103)</option>
+                                        <option value="16" >
+                    50 000 грн (104)</option>
+                                        <option value="17" >
+                    100 000 грн і більше (105)</option>
+                                                        </select>
+            </div>
+<div class="checkbox " id="nosalary_selection">
+<label>
+                    <input type="checkbox" value="1"  >
+                    <span>Не вказана</span><span class="text-default-7 add-left-sm">248</span>
+                </label>
+</div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Освіта</label>
+<div id="education_selection">
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="66"  >
+                        <span>Вища</span><span class="text-default-7 add-left-sm">98</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="67"  >
+                        <span>Незакінчена вища</span><span class="text-default-7 add-left-sm">71</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="68"  >
+                        <span>Середня спеціальна</span><span class="text-default-7 add-left-sm">35</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="69"  >
+                        <span>Середня</span><span class="text-default-7 add-left-sm">32</span>
+                    </label>
+</div>
+</div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Досвід роботи</label>
+<div id="experience_selection">
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="0"  >
+                        <span>Без досвіду</span><span class="text-default-7 add-left-sm">110</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="1"  >
+                        <span>До 1 року</span><span class="text-default-7 add-left-sm">39</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="164"  >
+                        <span>Від 1 до 2 років</span><span class="text-default-7 add-left-sm">30</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="165"  >
+                        <span>Від 2 до 5 років</span><span class="text-default-7 add-left-sm">64</span>
+                    </label>
+</div>
+<div class="checkbox ">
+<label>
+                        <input type="checkbox" value="166"  >
+                        <span>Понад 5 років</span><span class="text-default-7 add-left-sm">68</span>
+                    </label>
+</div>
+</div>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Знання мов</label>
+<div class="filter-parent" id="language_selection">
+<div class="checkbox ">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="1" >
+                            <span>Англійська</span><span class="text-default-7 add-left-sm">65</span>
+</label>
+                        </div>
+<div class="checkbox ">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="41" >
+                            <span>Українська</span><span class="text-default-7 add-left-sm">62</span>
+</label>
+                        </div>
+<div class="checkbox ">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="32" >
+                            <span>Російська</span><span class="text-default-7 add-left-sm">40</span>
+</label>
+                        </div>
+<div class="checkbox ">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="2" >
+                            <span>Німецька</span><span class="text-default-7 add-left-sm">10</span>
+</label>
+                        </div>
+<div class="checkbox ">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="3" >
+                            <span>Польська</span><span class="text-default-7 add-left-sm">8</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="31" >
+                            <span>Румунська</span><span class="text-default-7 add-left-sm">6</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="18" >
+                            <span>Італійська</span><span class="text-default-7 add-left-sm">3</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="26" >
+                            <span>Молдавська</span><span class="text-default-7 add-left-sm">3</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="4" >
+                            <span>Іспанська</span><span class="text-default-7 add-left-sm">3</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="45" >
+                            <span>Чеська</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="5" >
+                            <span>Французька</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="6" >
+                            <span>Азербайджанська</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="7" >
+                            <span>Арабська</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="38" >
+                            <span>Турецька</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+<div class="checkbox hide">
+<label>
+<input class="filter-item--parent filter-item__language" type="checkbox" value="13" >
+                            <span>Грецька</span><span class="text-default-7 add-left-sm">1</span>
+</label>
+                        </div>
+</div>
+<a class="inline-block" href="#" id="lang_more">
+                    Ще<span class="glyphicon glyphicon-chevron-down glyphicon-fs-24 glyphicon-top line-height-basic align-bottom"></span>
+                </a>
+</div>
+
+<div class="form-group add-top-md">
+<label class="h5 add-bottom">Інше</label>
+<div class="checkbox " id="student_selection">
+<label>
+<input type="checkbox" value="1"  >
+                    <span>Студент</span><span class="text-default-7 add-left-sm">50</span>
+                </label>
+</div>
+<div class="checkbox " id="photo_selection">
+<label>
+<input type="checkbox" value="1"  >
+                    <span>Зі світлиною</span><span class="text-default-7 add-left-sm">112</span>
+                </label>
+</div>
+<div class="checkbox " id="disability_selection">
+<label>
+<input type="checkbox" value="1"  >
+                    <span>З інвалідністю</span><span class="text-default-7 add-left-sm">4</span>
+                </label>
+</div>
+</div>
+
+                <div class="form-group add-top-md">
+            <label class="h5 add-bottom">Пошуковий запит</label>
+            <div class="checkbox">
+                <label><input type="checkbox" id="f1-1" checked>Тільки у заголовку</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="f2-2" checked>Включно з синонімами</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"  id="f3-3" >Шукати будь-яке зі слів</label>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="card card-bottom card-bottom-resumes hidden-md hidden-lg">
+    <div class="flex flex-align-center flex-justify-center " id="resume-found">
+        <div id="filters-count-row" class="add-right-exception" style="display: none;">
+            <a class="nowrap hovered" id="filters-reset" href="javascript:;">Скинути все</a>
+        </div>
+        <button type="button" class="btn btn-default w-100-mobile" id="filters-apply">Застосувати</button>
+    </div>
+    <div class="hide">
+        <div class="text-default-7">За вашим запитом кандидатів поки нема.</div>
+    </div>
+</div>
+                            </div>
+                        </div>
+                                                    <div class="add-top-md overflow rounded-20">
+
+                                    <div id="sfw_267" align="center">&nbsp;</div>
+<script>
+$(window).load(function() {
+setTimeout(
+function()
+{
+var so = new SWFObject("https://i.work.ua/b/267.swf?1105817654", "swf", "240", "350", "6", "#ffffff");
+so.addParam("quality", "best");
+so.addParam("menu", "false");
+so.addParam("wmode", "opaque");
+so.addParam("allowScriptAccess", "always");
+so.addVariable("url", "https://www.work.ua/to.php?bid=267");
+so.addVariable("target", "_blank");
+so.write("sfw_267");
+},
+500
+);
+});
+</script>
+
+
+
+                            </div>
+                                            </div>
+                </form>
+            </div>
+
+<div class="col-md-8">
+
+                <div class="flex flex-justify-between flex-align-flex-start">
+                    <div class="add-top-8">
+                        <h1 class="text-basic text-default-7">
+                                                            <span class="text-default">
+                                                                                                                353 кандидати
+
+                                </span>
+                                <br>
+                                                                                                            <span class="visible-xs-inline visible-sm-inline">За 3 місяці </span>
+                                                                                                                                                                                Менеджер з продажу
+                                                                                                                                                            у&nbsp;Чернівцях
+                                                                                                                                                                </h1>
+
+                                                                            <div class="pick-full-load">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/c/3/6/c36e146d55ec0e23e153f0c02ccdb3f3.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/8/e/e/8eebdf15bd75adb4a159354834fcb764.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/a/6/2/a623d793d2290675e4afd1055c4b872c.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/c/c/9/cc94c101176a5ed73851417fff0235c7.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/5/d/5/5d5e67b78578f8c9622bba7ec9339dd1.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/5/d/9/5d9a86a0ed734ea223e846f4c66ca5cf.jpg" alt="">
+                                                                    <img width="300" height="400" src="https://i.work.ua/sent_photo/8/c/b/8cba9243068a74124135b7037332c896.jpg" alt="">
+                                                            </div>
+                                            </div>
+
+                    <div class="dropdown add-left-default hidden-xs hidden-sm">
+                            <a href="javascript:;" class="btn btn-tertiary btn-icon btn-icon-right" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
+                                За 3 місяці,
+                                за датою
+                                <span class="glyphicon glyphicon-fs-24 glyphicon-sort-left"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                                <li ><a class="period" data-period="1" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=1">
+                                    За 1 день</a></li>
+                                                                <li ><a class="period" data-period="2" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=2">
+                                    За 7 днів</a></li>
+                                                                <li ><a class="period" data-period="3" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=3">
+                                    За 30 днів</a></li>
+                                                                <li class="active"><a class="period" data-period="4" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=4">
+                                    За 3 місяці</a></li>
+                                                                <li ><a class="period" data-period="5" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=5">
+                                    За 1 рік</a></li>
+                                                                <li ><a class="period" data-period="6" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?period=6">
+                                    Архів</a></li>
+                                                                <li role="separator" class="divider"></li>
+
+                                <li class="active"><a class="sort" data-sort="2" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/">За датою</a></li>
+                                                                <li ><a class="sort" data-sort="3" href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?sort=3">За зарплатою</a></li>
+                            </ul>
+                        </div>
+
+                    <div class="flex flex-justify-end hidden-md hidden-lg">
+                        <a class="btn btn-tertiary" href="javascript:;" id="filter-mobile-sort"><span class="glyphicon glyphicon-top glyphicon-sort-left glyphicon-fs-24"></span></a>
+                        <a class="btn btn-tertiary" href="javascript:;" id="filter-mobile-menu"><span class="glyphicon glyphicon-top glyphicon-filters glyphicon-fs-24"></span></a>
+                    </div>
+                </div>
+
+                                <div class="disconnect-alert hidden-md hidden-lg">
+                    <div class="alert alert-warning text-center add-top">
+                        <p><span class="glyphicon glyphicon-warning-sign text-warning"></span></p>
+                        <p>Здається, у вас пропав інтернет.<br>Все знову запрацює, коли він з'явиться.</p>
+                    </div>
+                </div>
+
+<div id="pjax-resume-list">
+
+
+<a name="5883831"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap add-top">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-indigo-light add-right-xs add-bottom-sm" data-toggle="popover" data-content="Професійне резюме — це резюме, в якому шукач вказав досвід роботи, освіту та підтвердив свою ел. пошту.<br><a href='/help/160/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>">PRO</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/5883831/" title="Менеджер з продажу в інтернет, медіабаєр, резюме від 7 січня 2024">Менеджер з продажу в інтернет, медіабаєр</a>
+            </h2>
+        </div>
+
+                    <p class="h5 strong-600 add-top-xs cut-bottom nowrap">
+                25&nbsp;000 грн
+            </p>
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Борис</span>, <span>30&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Вища освіта · Повна зайнятість, неповна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>Менеджер інтернет магазину, <span class="text-default-7">Zeson, 1&nbsp;рік&nbsp;8&nbsp;місяців</span></li>
+                                        <li>Комірник, <span class="text-default-7">МПВКП &quot;Уніком&quot;, 6&nbsp;років&nbsp;10&nbsp;місяців</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">2 години тому</div>
+                        </div>
+    </div>
+                        <div id="post-free-job-candidate-list-guest" class="card card-search b-post-free-job  card-hover js-free-job-banner ">
+                <h3 class="text-default cut-top add-bottom-xs">Розміщуйте вакансію
+                    <span class="badge-free inline-block">безкоштовно щомісяця</span>
+                </h3>
+                <p class="text-muted cut-top cut-bottom">Щомісяця кожна компанія має можливість безкоштовно розміщувати одну вакансію.</p>
+                <div class="add-top clearfix">
+                    <div class="pull-left no-pull-xs">
+                        <a class="btn btn-add add-right  js-create-job-link " href="/employer/my/jobs/create/">Створити вакансію</a>
+                    </div>
+
+                                    </div>
+            </div>
+
+<a name="10339681"></a>
+<a name="9976345"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10339681/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Михайло</span>                <span class="label label-circle label-green-light add-left-xs add-right-sm">
+                    <span class="glyphicon glyphicon-top glyphicon-fs-16 glyphicon-disability"
+                          data-toggle="popover"
+                          data-content="Людина з інвалідністю.
+                          <br><a class='nowrap migr-l1' href='/news/site/829/' target='_blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>
+                          <br><a class='nowrap migr-l1' href='/resumes/?advs=1&disability=1' target='_blank'>Усі такі кандидати<span class='glyphicon glyphicon-chevron-right'></span></a>">
+                    </span>
+                </span>
+             <span>19&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Середня спеціальна освіта</p>
+                        <p class="cut-bottom overflow wordwrap">Освіта: 01.2020 - 01.2024: Комп’ютерна інженерія (Коледж ЧНУ)....</p>
+                    <p>Ще 1 резюме цього кандидата</p>
+                            <p class="text-default-7 add-top-sm cut-bottom">
+                    <a href="/resumes/9976345/" title="SMM-менеджер, резюме від 13 грудня 2023">SMM-менеджер</a><span>, Чернівці</span></span>, 3 тижні тому</span>                </p>
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">3 години тому</div>
+                        </div>
+    </div>
+
+<a name="7341612"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-indigo-light add-right-xs add-bottom-sm" data-toggle="popover" data-content="Професійне резюме — це резюме, в якому шукач вказав досвід роботи, освіту та підтвердив свою ел. пошту.<br><a href='/help/160/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>">PRO</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/7341612/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+                    <p class="h5 strong-600 add-top-xs cut-bottom nowrap">
+                20&nbsp;000 грн
+            </p>
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Orest</span>, <span>30&nbsp;років</span>, <span>Чернівці, Дистанційно</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Незакінчена вища освіта · Повна зайнятість, неповна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>МЗЕД, <span class="text-default-7">Hegelmann, 4&nbsp;місяці</span></li>
+                                        <li>Менеджер з продажу, <span class="text-default-7">hh.ua, 6&nbsp;місяців</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">4 години тому</div>
+                        </div>
+    </div>
+
+<a name="4179169"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/4179169/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+                    <p class="h5 strong-600 add-top-xs cut-bottom nowrap">
+                18&nbsp;000 грн
+            </p>
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Олена</span>, <span>29&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Незакінчена вища освіта · Повна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>Адміністратор, <span class="text-default-7">GRANOVSKI, 2&nbsp;роки</span></li>
+                                        <li>Офіциант, <span class="text-default-7">Кафе-бар &#039;Пілігрим&#039;, 1&nbsp;рік&nbsp;10&nbsp;місяців</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">6 годин тому</div>
+                        </div>
+    </div>
+
+<a name="10338846"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10338846/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Приховано</span>, <span>18&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Середня освіта</p>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">8 годин тому</div>
+                        </div>
+    </div>
+
+<a name="5614528"></a>
+<a name="4674778"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-indigo-light add-right-xs add-bottom-sm" data-toggle="popover" data-content="Професійне резюме — це резюме, в якому шукач вказав досвід роботи, освіту та підтвердив свою ел. пошту.<br><a href='/help/160/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>">PRO</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/5614528/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+                    <p class="h5 strong-600 add-top-xs cut-bottom nowrap">
+                10&nbsp;000 грн
+            </p>
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Аліна</span>, <span>26&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Незакінчена вища освіта · Повна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>Оператор, <span class="text-default-7">ТОВ Рома, 9&nbsp;місяців</span></li>
+                                    </ul>
+
+                    <p>Ще 1 резюме цього кандидата</p>
+                            <p class="text-default-7 add-top-sm cut-bottom">
+                    <a href="/resumes/4674778/" title="Официант, резюме від 7 січня 2024">Официант</a><span>,  5000 грн, Чернівці</span></span>, 8 годин тому</span>                </p>
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">8 годин тому</div>
+                        </div>
+    </div>
+
+<a name="10338519"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-violet-light add-right-xs add-bottom-sm">Файл</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10338519/" title="Менеджер з продажу, резюме від 7 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Ліана</span>, <span>31&nbsp;рік</span>, <span>Чернівці</span></p>
+
+
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">17 годин тому</div>
+                        </div>
+    </div>
+
+<a name="10227357"></a>
+<a name="9692280"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-indigo-light add-right-xs add-bottom-sm" data-toggle="popover" data-content="Професійне резюме — це резюме, в якому шукач вказав досвід роботи, освіту та підтвердив свою ел. пошту.<br><a href='/help/160/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>">PRO</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10227357/" title="Менеджер з продажу, резюме від 6 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Вікторія</span>, <span>18&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Незакінчена вища освіта</p>
+                        <ul class="add-top cut-bottom">                    <li>Продавець-консультант, <span class="text-default-7">IQ магазин жіночого одягу, 5&nbsp;місяців</span></li>
+                                        <li>Хостес, <span class="text-default-7">Гойра-груп, 11&nbsp;місяців</span></li>
+                                    </ul>
+
+                    <p>Ще 1 резюме цього кандидата</p>
+                            <p class="text-default-7 add-top-sm cut-bottom">
+                    <a href="/resumes/9692280/" title="Продавець-консультант, резюме від 18 грудня 2023">Продавець-консультант</a><span>, Чернівці</span></span>, 2 тижні тому</span>                </p>
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">вчора</div>
+                        </div>
+    </div>
+
+<a name="8069503"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/8069503/" title="Менеджер з продажу, резюме від 6 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Анатолій</span>, <span>22&nbsp;роки</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Середня освіта</p>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">вчора</div>
+                        </div>
+    </div>
+
+<a name="10337109"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10337109/" title="Менеджер з продажу, резюме від 6 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Антон</span>, <span>36&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Вища освіта</p>
+                        <ul class="add-top cut-bottom">                    <li>Командир відділення, <span class="text-default-7">ЗСУ, 1&nbsp;рік&nbsp;9&nbsp;місяців</span></li>
+                                        <li>Директор підприємства, <span class="text-default-7">Дизайн студія Клевер, 9&nbsp;років&nbsp;4&nbsp;місяці</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">вчора</div>
+                        </div>
+    </div>
+
+<a name="10336713"></a>
+<a name="10027562"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/10336713/" title="Менеджер з продажу, резюме від 6 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Володимир</span>, <span>20&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Незакінчена вища освіта · Повна зайнятість</p>
+                        <p class="cut-bottom overflow wordwrap">Освіта: 01.2020 - 01.2024: Географічний, Геодезія та землеустрій (Чернівецький національний університет)....</p>
+                    <p>Ще 1 резюме цього кандидата</p>
+                            <p class="text-default-7 add-top-sm cut-bottom">
+                    <a href="/resumes/10027562/" title="ГІС-спеціаліст, резюме від 4 січня 2024">ГІС-спеціаліст</a><span>, Чернівці</span></span>, 3&nbsp;дні тому</span>                </p>
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">вчора</div>
+                        </div>
+    </div>
+
+<a name="9568305"></a>
+<a name="9327109"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/9568305/" title="Менеджер з продажу, резюме від 5 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Родіон</span>, <span>22&nbsp;роки</span>, <span>Чернівці, Хмельницький, Кам&#039;янець-Подільський</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Вища освіта</p>
+                        <p class="cut-bottom overflow wordwrap">Освіта: 01.2018 - 01.2022: Агробіологічний, Агрономія (НУБіП, Національний університет біоресурсів і природокористування України)....</p>
+                    <p>Ще 1 резюме цього кандидата</p>
+                            <p class="text-default-7 add-top-sm cut-bottom">
+                    <a href="/resumes/9327109/" title="Агроном, резюме від 28 жовтня 2023">Агроном</a><span>, Чернівці, Хмельницький</span></span>, 2 місяці тому</span>                </p>
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">2&nbsp;дні тому</div>
+                        </div>
+    </div>
+
+<a name="9390954"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/9390954/" title="Менеджер з продажу, резюме від 5 січня 2024">Менеджер з продажу</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Лілія</span>, <span>29&nbsp;років</span>, <span>Чернівці</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Повна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>Менеджер з продажу, <span class="text-default-7">АТ &quot;Ощадбанк&quot;, 6&nbsp;років&nbsp;1&nbsp;місяць</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">2&nbsp;дні тому</div>
+                        </div>
+    </div>
+
+<a name="5049275"></a>
+<div tabindex="0" class="card card-hover card-search resume-link card-visited wordwrap">
+
+                    <div class="flex flex-align-center flex-wrap add-top-exception"><span class="label label-indigo-light add-right-xs add-bottom-sm" data-toggle="popover" data-content="Професійне резюме — це резюме, в якому шукач вказав досвід роботи, освіту та підтвердив свою ел. пошту.<br><a href='/help/160/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>">PRO</span><span class="label label-circle label-circle-default label-blue-mariner-100 add-right-xs add-bottom-sm" data-toggle="popover" data-content="Це резюме написане українською мовою. Чому воно класне? <a href='/news/site/2241/' class='bp-more' target='blank'>Докладніше<span class='glyphicon glyphicon-chevron-right'></span></a>"><span class="glyphicon glyphicon-multicolor glyphicon-flag glyphicon-fs-16 glyphicon-top"></span></span></div>
+        <div  class="add-top-sm" >
+                        <h2 class="cut-top">
+                <a tabindex="-1" href="/resumes/5049275/" title="Менеджер по продажам, резюме від 5 січня 2024">Менеджер по продажам</a>
+            </h2>
+        </div>
+
+
+        <p class="add-top-xs cut-bottom"><span class="strong-600">Виктория</span>, <span>30&nbsp;років</span>, <span>Чернівці, Дистанційно</span></p>
+
+
+                    <p class="cut-bottom add-top-xs text-default-7">Середня спеціальна освіта · Неповна зайнятість</p>
+                        <ul class="add-top cut-bottom">                    <li>Продавець консультант, <span class="text-default-7">Вейп Шоп, 10&nbsp;місяців</span></li>
+                                        <li>Продавець непродовольчих товарів, <span class="text-default-7">МТК Калинівський ринок, 1&nbsp;рік</span></li>
+                                    </ul>
+
+
+        <div class="clearfix"></div>
+<div class="flex flex-align-center flex-wrap flex-justify-between">
+            <div class="text-default-7 add-top">2&nbsp;дні тому</div>
+                        </div>
+    </div>
+
+
+
+
+
+
+<nav>
+<ul class="pagination hidden-xs">
+<li class="no-style disabled add-right">
+            <span>
+                <span class="glyphicon glyphicon-top glyphicon-fs-24 glyphicon-chevron-left"></span><span>Попередня</span>
+            </span>
+</li>
+
+
+<li class="active"><span title="Сторінка 1">1</span></li>
+<li><a href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?page=2" title="Сторінка 2">2</a></li>
+<li><a href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?page=3" title="Сторінка 3">3</a></li>
+
+<li class="no-style"><span class="ellipsis-style">...</span></li>
+<li><a href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?page=26" title="Сторінка 26">26</a></li>
+
+<li class="no-style add-left-default">
+            <a href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?page=2">
+                <span>Наступна</span><span class="glyphicon glyphicon-top glyphicon-fs-24 glyphicon-chevron-right"></span>
+            </a>
+</li>
+</ul>
+<ul class="pagination pagination-small visible-xs-block">
+<li class="circle-style disabled add-right-sm">
+<span>
+                <span class="glyphicon glyphicon-top glyphicon-fs-24 glyphicon-chevron-left"></span>
+            </span>
+</li>
+<li class="no-style"><span class="text-default" title="Стор. 1 з 26">Стор. 1 з 26</span></li>
+<li class="circle-style add-left-sm">
+<a href="/resumes-chernivtsi_cv-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80+%d0%b7+%d0%bf%d1%80%d0%be%d0%b4%d0%b0%d0%b6%d1%83/?page=2">
+                <span class="glyphicon glyphicon-top glyphicon-fs-24 glyphicon-chevron-right"></span>
+            </a>
+</li>
+</ul>
+</nav>
+
+
+</div>
+
+                <div class="backdrop-window js-backdrop-window" style="display: none"></div>
+<div class="container-absolute hidden" id="search-sort-filter" style="position: fixed; left: 0; top: 5000px; z-index: 1170; height: 100%; display: block; width: 100vw; border-radius: 20px">
+    <div class="filters-sort-block">
+        <div class="filters-controls filters-controls-resumes">
+            <div class="filters-controls-container">
+                <div class="flex flex-justify-between flex-align-center add-top add-bottom">
+                    <div class="flex flex-align-center">
+                        <span class="glyphicon glyphicon-sort-left glyphicon-fs-24 glyphicon-top add-right-xs"></span>
+                        <span>Сортування</span>
+                    </div>
+                    <a href="javascript:;" class="link-close line-height-default" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+
+                <div id="search-sort-mobile">
+                    <label class="h5 add-top-md add-bottom">Сортування за</label>
+                    <div id="sortingJob">
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="1"  data-period="1">
+                                <span>За 1 день</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="2"  data-period="2">
+                                <span>За 7 днів</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="3"  data-period="3">
+                                <span>За 30 днів</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="4" checked data-period="4">
+                                <span>За 3 місяці</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="5"  data-period="5">
+                                <span>За 1 рік</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="period" type="radio" name="days" value="6"  data-period="6">
+                                <span>Архів</span>
+                            </label>
+                        </div>
+
+                        <label class="h5 add-top-md add-bottom">Публікації за</label>
+                        <div class="radio">
+                            <label>
+                                <input class="sort" type="radio" name="sort" value="" data-sort="2" checked>
+                                <span>За датою</span>
+                            </label>
+                        </div>
+                                                <div class="radio">
+                            <label>
+                                <input class="sort" type="radio" name="sort" value="3" data-sort="3" >
+                                <span>За зарплатою</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-bottom card-bottom-job">
+            <a id="sort-apply" href="javascript: void(0)" class="btn btn-default w-100-mobile">Застосувати</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</div><!-- /.container -->
