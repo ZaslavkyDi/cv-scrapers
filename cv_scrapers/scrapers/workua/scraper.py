@@ -1,12 +1,16 @@
 import asyncio
 import dataclasses
+import logging
 from collections.abc import Awaitable
 
 from httpx import AsyncClient, Response
 
 from cv_scrapers.common.schemas.candidates_result import CandidatesPageResultSchema
+from cv_scrapers.scrapers.exceptions import NoLastPageNumber
 from cv_scrapers.scrapers.workua.config import get_workua_settings
 from cv_scrapers.scrapers.workua.parsers import WorkUACandidatesHtmlParser
+
+logger = logging.getLogger(__name__)
 
 
 @dataclasses.dataclass
@@ -76,9 +80,13 @@ class WorkUACandidatesScraper:
             html_content=content,
             url=url,
         )
-        last_page_number = self._parser.parse_last_page_number(
-            content=content,
-            url=url,
-        )
+        try:
+            last_page_number = self._parser.parse_last_page_number(
+                content=content,
+                url=url,
+            )
+        except NoLastPageNumber:
+            logger.info(f"Can not find last page number for {url}. Set last page number to 1.")
+            last_page_number = 1
 
         return FirstPageResult(page_result=page_result, last_page_number=last_page_number)

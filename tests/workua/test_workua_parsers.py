@@ -9,14 +9,14 @@ from cv_scrapers.scrapers.workua.parsers import WorkUACandidatesHtmlParser
 @pytest.fixture(scope="class")
 def html_candidates_page_1() -> str:
     path = Path(__file__).parent.parent / "resources/workua/candidates_page_1.html"
-    with open(path, "r") as file:
+    with open(path) as file:
         yield file.read()
 
 
 @pytest.fixture(scope="class")
 def html_candidates_page_2() -> str:
     path = Path(__file__).parent.parent / "resources/workua/candidates_page_2.html"
-    with open(path, "r") as file:
+    with open(path) as file:
         yield file.read()
 
 

@@ -1,0 +1,2 @@
+class NoLastPageNumber(ValueError):
+    pass

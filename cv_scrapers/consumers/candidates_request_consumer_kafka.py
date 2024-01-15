@@ -3,13 +3,11 @@ import logging
 from collections.abc import Awaitable
 
 from confluent_kafka import Message
-from cv_common_library.message_brokers.kafka.base import kafka_consumer_settings
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
 
 from cv_scrapers.common.enums import ScraperSourceName
 from cv_scrapers.common.logger import init_logging
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
-from cv_scrapers.message_broker.base.connection import get_rabbitmq_connection
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
 from cv_scrapers.scrapers.workua.executor import WorkUAExecutor
@@ -18,7 +16,9 @@ logger = logging.getLogger(__name__)
 
 
 class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingMessageSchema]):
-    _TOPICS: list[str] = ["cv-scrapers.candidates.request",]
+    _TOPICS: list[str] = [
+        "cv-scrapers.candidates.request",
+    ]
     _GROUP_ID = "cv-scrapers.candidates.request"
 
     _SCRAPER_EXECUTORS: dict[ScraperSourceName, type[BaseAsyncExecutor]] = {

@@ -9,6 +9,7 @@ from cv_scrapers.common.schemas.candidates_result import (
     CandidateDetailsSchema,
     CandidatesPageResultSchema,
 )
+from cv_scrapers.scrapers.exceptions import NoLastPageNumber
 from cv_scrapers.scrapers.workua.config import get_workua_settings
 
 logger = getLogger(__name__)
@@ -43,7 +44,7 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
         )
         return CandidatesPageResultSchema(
             candidates=candidates,
-            page_number=int(current_page_number),
+            page_number=int(current_page_number) if current_page_number.isdigit() else 1,
         )
 
     def parse_last_page_number(self, content: str, url: str | None) -> int:
@@ -55,7 +56,7 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
         numbers = [int(i) for i in pages_range.split() if i.isdigit()]
 
         if not numbers:
-            raise ValueError(f"Can not parse number. There is no digit: [{pages_range}]")
+            raise NoLastPageNumber(f"Can not parse number. There is no digit: [{pages_range}]")
 
         return numbers[-1]
 
