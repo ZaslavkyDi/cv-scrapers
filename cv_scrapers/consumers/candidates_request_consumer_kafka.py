@@ -6,7 +6,6 @@ from confluent_kafka import Message
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
 
 from cv_scrapers.common.enums import ScraperSourceName
-from cv_scrapers.common.logger import init_logging
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
@@ -16,6 +15,23 @@ logger = logging.getLogger(__name__)
 
 
 class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingMessageSchema]):
+    """
+    A Kafka consumer for candidate requests.
+
+    This consumer listens to the "cv-scrapers.candidates.request" topic and initiates scraping tasks
+    based on the incoming messages. The scraping tasks are handled by executors specified in the
+    `_SCRAPER_EXECUTORS` dictionary.
+
+    Examples:
+        async def main() -> None:
+            consumer = CandidatesRequestConsumerKafka()
+            await consumer.start_consuming()
+            await asyncio.Future()
+
+        if __name__ == "__main__":
+            asyncio.run(main())
+    """
+
     _TOPICS: list[str] = [
         "cv-scrapers.candidates.request",
     ]
@@ -84,15 +100,3 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
         result = await executor.run(position=position)
         print(f"Request_id: {request_id}. Source: {scraping_source}.")
         # TODO: send to another queue
-
-
-async def main() -> None:
-    consumer = CandidatesRequestConsumerKafka()
-
-    await consumer.start_consuming()
-    await asyncio.Future()
-
-
-if __name__ == "__main__":
-    init_logging()
-    asyncio.run(main())
