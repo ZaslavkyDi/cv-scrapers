@@ -35,8 +35,9 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
 
     async def process_message(self, message: Message) -> None:
         try:
-            payload = message.value()
-            message_model = CandidateRequestIncomingMessageSchema.model_validate_json(payload)
+            message_model = CandidateRequestIncomingMessageSchema.model_validate_json(
+                message.value()
+            )
             await self._initiate_scraping(message_model)
         except Exception as e:
             logger.exception(f"Error in {self.topics}: {e!s}")

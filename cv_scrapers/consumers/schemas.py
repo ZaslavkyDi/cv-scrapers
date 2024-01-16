@@ -33,4 +33,5 @@ class CandidateRequestIncomingMessageSchema(MessageSchema):
         }
     }
     """
+
     body: CandidateRequestMessageBodySchema
