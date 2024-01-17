@@ -2,6 +2,7 @@ import asyncio
 import dataclasses
 import logging
 from collections.abc import Awaitable
+from urllib.parse import urljoin
 
 from httpx import AsyncClient, Response
 
@@ -71,7 +72,7 @@ class WorkUACandidatesScraper:
         return response
 
     async def _scrape_first_page(self, base_url: str) -> FirstPageResult:
-        url = f"{base_url}/?page=1"
+        url = urljoin(base_url, "/?page=1")
         response: Response = await self._httpx_client.get(url)
         response.raise_for_status()
 

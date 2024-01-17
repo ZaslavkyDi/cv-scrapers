@@ -1,15 +1,7 @@
-from pydantic import UUID4, BaseModel, Field
+from cv_common_library.message_brokers.schemas import BaseMessageSchema
+from pydantic import BaseModel, Field
 
 from cv_scrapers.common.enums import ScraperSourceName
-
-
-class MetadataSchema(BaseModel):
-    request_id: UUID4 | None = None
-
-
-class MessageSchema(BaseModel):
-    metadata: MetadataSchema
-    # body: BaseModel
 
 
 class CandidateRequestMessageBodySchema(BaseModel):
@@ -17,7 +9,7 @@ class CandidateRequestMessageBodySchema(BaseModel):
     position: str = Field(default_factory=list)
 
 
-class CandidateRequestIncomingMessageSchema(MessageSchema):
+class CandidateRequestIncomingMessageSchema(BaseMessageSchema):
     """
     Message schema example:
     {

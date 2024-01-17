@@ -1,12 +1,16 @@
 import asyncio
 import logging
 from collections.abc import Awaitable
+from typing import ClassVar
 
 from confluent_kafka import Message
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
+from cv_common_library.message_brokers.kafka.config import get_kafka_global_settings
 
 from cv_scrapers.common.enums import ScraperSourceName
+from cv_scrapers.common.logger import init_logging
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
+from cv_scrapers.producers.candidate_result_producer import CandidatesResultKafkaProducer
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
 from cv_scrapers.scrapers.workua.executor import WorkUAExecutor
@@ -32,22 +36,23 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
             asyncio.run(main())
     """
 
-    _TOPICS: list[str] = [
+    _TOPICS: ClassVar[list[str]] = [
         "cv-scrapers.candidates.request",
     ]
     _GROUP_ID = "cv-scrapers.candidates.request"
 
-    _SCRAPER_EXECUTORS: dict[ScraperSourceName, type[BaseAsyncExecutor]] = {
+    _SCRAPER_EXECUTORS: ClassVar[dict[ScraperSourceName, type[BaseAsyncExecutor]]] = {
         ScraperSourceName.robotaua: RobotaUAExecutor,
         ScraperSourceName.workua: WorkUAExecutor,
     }
 
-    def __init__(self) -> None:
+    def __init__(self, candidate_result_producer: CandidatesResultKafkaProducer) -> None:
         super().__init__(
             group_id=self._GROUP_ID,
             topics_to_subscribe=self._TOPICS,
-            bootstrap_servers="localhost:9092",
+            bootstrap_servers=get_kafka_global_settings().bootstrap_servers,
         )
+        self._candidate_result_producer = candidate_result_producer
 
     async def process_message(self, message: Message) -> None:
         try:
@@ -97,6 +102,22 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
             return
 
         executor = executor_class()
-        result = await executor.run(position=position)
-        print(f"Request_id: {request_id}. Source: {scraping_source}.")
-        # TODO: send to another queue
+        pages = await executor.run(position=position)
+
+        for page_result in pages:
+            self._candidate_result_producer.send_candidates_result(
+                request_id=request_id,
+                page_result=page_result,
+                scraping_source=scraping_source,
+            )
+
+
+async def main() -> None:
+    producer = CandidatesResultKafkaProducer()
+    consumer = CandidatesRequestConsumerKafka(producer)
+
+    await consumer.start_consuming()
+
+if __name__ == "__main__":
+    init_logging()
+    asyncio.run(main())

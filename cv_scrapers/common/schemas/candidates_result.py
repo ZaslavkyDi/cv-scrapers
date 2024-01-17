@@ -1,10 +1,6 @@
-from typing import TypeVar
-
 from pydantic import BaseModel
 
 from cv_scrapers.common.schemas.validators import NotEmptyNullableString
-
-CANDIDATE_T = TypeVar("CANDIDATE_T", bound=BaseModel)
 
 
 class CandidateDetailsSchema(BaseModel):
