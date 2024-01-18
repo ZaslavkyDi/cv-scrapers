@@ -9,6 +9,14 @@ from cv_scrapers.scrapers.robotaua.scraper import RobotaUACandidatesScraper
 
 
 class RobotaUAExecutor(BaseAsyncExecutor):
+    """
+    RobotaUAExecutor is a class that runs the scraping process for the RobotaUA website.
+
+    Example:
+        runner = WorkUAExecutor()
+        await runner.run(position="адміністратор")
+    """
+
     async def run(self, position: str, **kwargs: Any) -> list[CandidatesPageResultSchema]:
         async with httpx.AsyncClient() as client:
             scraper = RobotaUACandidatesScraper(
