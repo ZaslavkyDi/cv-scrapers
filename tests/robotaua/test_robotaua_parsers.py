@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -7,7 +8,8 @@ from cv_scrapers.scrapers.robotaua.parsers import RobotaUACandidatesJsonParser
 
 @pytest.fixture(scope="class")
 def json_candidates_page_1() -> str:
-    with open("../tests/resources/robotaua/candidates_page_1.json") as file:
+    path = Path(__file__).parent.parent / "resources/robotaua/candidates_page_1.json"
+    with open(path) as file:
         yield file.read()
 
 
@@ -24,7 +26,7 @@ class TestRobotaUACandidatesJsonParser:
     ) -> None:
         contains_expected_candidates: list[dict[str, Any]] = [
             {
-                "cv_url": "https://robota.ua/ua/cv/20383779",
+                "cv_url": "https://robota.ua/candidates/20383779",
                 "position": "Офіс-менеджер",
                 "name": "Дмитро",
                 "compensation": "14\xa0000 грн.",
@@ -32,7 +34,7 @@ class TestRobotaUACandidatesJsonParser:
                 "location": "Чернівці",
             },
             {
-                "cv_url": "https://robota.ua/ua/cv/14708401",
+                "cv_url": "https://robota.ua/candidates/14708401",
                 "position": "Адміністратор",
                 "name": "Любов Григорівна",
                 "compensation": "20\xa0000 грн.",
@@ -40,7 +42,7 @@ class TestRobotaUACandidatesJsonParser:
                 "location": "Чернівці",
             },
             {
-                "cv_url": "https://robota.ua/ua/cv/22769674",
+                "cv_url": "https://robota.ua/candidates/22769674",
                 "position": "Адміністратор, бухгалтер",
                 "name": "Ангеліна",
                 "compensation": None,

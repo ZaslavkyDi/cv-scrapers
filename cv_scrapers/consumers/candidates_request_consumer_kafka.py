@@ -110,14 +110,3 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
                 page_result=page_result,
                 scraping_source=scraping_source,
             )
-
-
-async def main() -> None:
-    producer = CandidatesResultKafkaProducer()
-    consumer = CandidatesRequestConsumerKafka(producer)
-
-    await consumer.start_consuming()
-
-if __name__ == "__main__":
-    init_logging()
-    asyncio.run(main())

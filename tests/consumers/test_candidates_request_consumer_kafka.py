@@ -10,7 +10,9 @@ from cv_scrapers.consumers.candidates_request_consumer_kafka import CandidatesRe
 
 @pytest.fixture
 def candidates_kafka_consumer() -> CandidatesRequestConsumerKafka:
-    return CandidatesRequestConsumerKafka()
+    return CandidatesRequestConsumerKafka(
+        candidate_result_producer=MagicMock(),
+    )
 
 
 def build_kafka_message_request_mock(scraping_sources: list[ScraperSourceName]) -> MagicMock:
