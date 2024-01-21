@@ -5,7 +5,7 @@ import pytest
 from confluent_kafka import Message
 
 from cv_scrapers.common.enums import ScraperSourceName
-from cv_scrapers.consumers.candidates_request_consumer_kafka import CandidatesRequestConsumerKafka
+from cv_scrapers.consumers.candidates_request_consumer import CandidatesRequestConsumerKafka
 
 
 @pytest.fixture
