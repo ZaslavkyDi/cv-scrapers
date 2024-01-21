@@ -16,6 +16,7 @@ class WorkUAExecutor(BaseAsyncExecutor):
         runner = WorkUAExecutor()
         await runner.run(position="адміністратор")
     """
+
     async def run(self, position: str, **kwargs: Any) -> list[CandidatesPageResultSchema]:
         async with httpx.AsyncClient() as client:
             scraper = WorkUACandidatesScraper(

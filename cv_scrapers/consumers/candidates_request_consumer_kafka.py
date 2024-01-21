@@ -1,16 +1,16 @@
 import asyncio
 import logging
 from collections.abc import Awaitable
-from typing import ClassVar
+from typing import ClassVar, Self
 
 from confluent_kafka import Message
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
 from cv_common_library.message_brokers.kafka.config import get_kafka_global_settings
 
 from cv_scrapers.common.enums import ScraperSourceName
-from cv_scrapers.common.logger import init_logging
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
 from cv_scrapers.producers.candidate_result_producer import CandidatesResultKafkaProducer
+from cv_scrapers.registries import consumers
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
 from cv_scrapers.scrapers.workua.executor import WorkUAExecutor
@@ -18,6 +18,7 @@ from cv_scrapers.scrapers.workua.executor import WorkUAExecutor
 logger = logging.getLogger(__name__)
 
 
+@consumers.register("candidates_request_consumer_kafka")
 class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingMessageSchema]):
     """
     A Kafka consumer for candidate requests.
@@ -54,11 +55,23 @@ class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingM
         )
         self._candidate_result_producer = candidate_result_producer
 
+    @classmethod
+    def create_instance(cls) -> Self:
+        """
+        Factory method for Kafka consumer.
+
+        Returns:
+            CandidatesRequestConsumerKafka: A new CandidatesRequestConsumerKafka instance.
+        """
+        candidate_result_producer = CandidatesResultKafkaProducer()
+        return cls(candidate_result_producer)
+
     async def process_message(self, message: Message) -> None:
         try:
             message_model = CandidateRequestIncomingMessageSchema.model_validate_json(
                 message.value()
             )
+            logger.info(f"Received message: {message_model.model_dump()}")
             await self._initiate_scraping(message_model)
         except Exception as e:
             logger.exception(f"Error in {self.topics}: {e!s}")

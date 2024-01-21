@@ -21,10 +21,8 @@ class WorkUACandidatesHtmlParser(LxmlXpathMixin):
     CANDIDATE_CARD_LINK_XPATH = ".//h2/a/@href"
     CANDIDATE_CARD_NAME_XPATH = ".//p/span[1]//text()"
     CANDIDATE_CARD_DESIRE_COMPENSATION_XPATH = ".//p[contains(@class, 'h5 ')]//text()"
-    CANDIDATE_CARD_AGE_XPATH = './/p/span[2]//text()'
-    CANDIDATE_CARD_LOCATION_XPATH = (
-        './/p/span[3]//text()'
-    )
+    CANDIDATE_CARD_AGE_XPATH = ".//p/span[2]//text()"
+    CANDIDATE_CARD_LOCATION_XPATH = ".//p/span[3]//text()"
 
     CURRENT_PAGE_NUMBER_XPATH = (
         "//*[@id='pjax-resume-list']/nav/ul[1]/li[@class='active']/span/text()"
