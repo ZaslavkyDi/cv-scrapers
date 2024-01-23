@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 @consumers.register("candidates_request_consumer_kafka")
-class CandidatesRequestConsumerKafka(BaseKafkaConsumer[CandidateRequestIncomingMessageSchema]):
+class CandidatesRequestConsumerKafka(BaseKafkaConsumer):
     """
     A Kafka consumer for candidate requests.
 
