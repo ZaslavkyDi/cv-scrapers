@@ -6,11 +6,11 @@ from typing import ClassVar, Self
 from confluent_kafka import Message
 from cv_common_library.message_brokers.kafka.base.consumer import BaseKafkaConsumer
 from cv_common_library.message_brokers.kafka.config import get_kafka_global_settings
+from cv_common_library.registry import consumers
 
 from cv_scrapers.common.enums import ScraperSourceName
 from cv_scrapers.consumers.schemas import CandidateRequestIncomingMessageSchema
 from cv_scrapers.producers.candidate_result_producer import CandidatesResultKafkaProducer
-from cv_scrapers.registries import consumers
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.robotaua.executor import RobotaUAExecutor
 from cv_scrapers.scrapers.workua.executor import WorkUAExecutor
