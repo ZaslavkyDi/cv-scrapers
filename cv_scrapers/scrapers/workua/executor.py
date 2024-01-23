@@ -1,8 +1,8 @@
 from typing import Any
 
 import httpx
+from cv_common_library.schemas.cv_data_storage.candidates_result import CandidatesPageResultSchema
 
-from cv_scrapers.common.schemas.candidates_result import CandidatesPageResultSchema
 from cv_scrapers.scrapers.base.executor import BaseAsyncExecutor
 from cv_scrapers.scrapers.workua.parsers import WorkUACandidatesHtmlParser
 from cv_scrapers.scrapers.workua.scraper import WorkUACandidatesScraper

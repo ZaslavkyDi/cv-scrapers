@@ -4,9 +4,9 @@ import logging
 from collections.abc import Awaitable
 from urllib.parse import urljoin
 
+from cv_common_library.schemas.cv_data_storage.candidates_result import CandidatesPageResultSchema
 from httpx import AsyncClient, Response
 
-from cv_scrapers.common.schemas.candidates_result import CandidatesPageResultSchema
 from cv_scrapers.scrapers.exceptions import NoLastPageNumber
 from cv_scrapers.scrapers.workua.config import get_workua_settings
 from cv_scrapers.scrapers.workua.parsers import WorkUACandidatesHtmlParser
@@ -33,7 +33,7 @@ class WorkUACandidatesScraper:
         if not search_response.next_request:
             raise ValueError("Can not find positions URL for candidates.")
 
-        base_position_url = search_response.next_request.url
+        base_position_url = str(search_response.next_request.url)
 
         first_page_result: FirstPageResult = await self._scrape_first_page(
             base_url=base_position_url
@@ -72,7 +72,7 @@ class WorkUACandidatesScraper:
         return response
 
     async def _scrape_first_page(self, base_url: str) -> FirstPageResult:
-        url = urljoin(base_url, "/?page=1")
+        url = urljoin(base_url, "?page=1")
         response: Response = await self._httpx_client.get(url)
         response.raise_for_status()
 

@@ -1,6 +1,5 @@
+from cv_common_library.schemas.validators import NotEmptyNullableString
 from pydantic import BaseModel, ConfigDict, Field
-
-from cv_scrapers.common.schemas.validators import NotEmptyNullableString
 
 
 class CandidateData(BaseModel):

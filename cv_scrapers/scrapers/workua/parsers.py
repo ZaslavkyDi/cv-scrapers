@@ -1,14 +1,14 @@
 import re
 from logging import getLogger
 
+from cv_common_library.schemas.cv_data_storage.candidates_result import (
+    CandidateDetailsSchema,
+    CandidatesPageResultSchema,
+)
 from lxml import etree
 from lxml.etree import _Element as Element
 
 from cv_scrapers.common.mixins.parser_mixins import LxmlXpathMixin
-from cv_scrapers.common.schemas.candidates_result import (
-    CandidateDetailsSchema,
-    CandidatesPageResultSchema,
-)
 from cv_scrapers.scrapers.exceptions import NoLastPageNumber
 from cv_scrapers.scrapers.workua.config import get_workua_settings
 

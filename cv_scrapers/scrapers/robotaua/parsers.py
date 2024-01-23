@@ -1,9 +1,10 @@
 from logging import getLogger
 
-from cv_scrapers.common.schemas.candidates_result import (
+from cv_common_library.schemas.cv_data_storage.candidates_result import (
     CandidateDetailsSchema,
     CandidatesPageResultSchema,
 )
+
 from cv_scrapers.scrapers.robotaua.config import get_robotaua_settings
 from cv_scrapers.scrapers.robotaua.schemas.response import ResumeSearchResponsePayload
 

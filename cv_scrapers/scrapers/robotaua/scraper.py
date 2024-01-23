@@ -3,9 +3,9 @@ import dataclasses
 import math
 from collections.abc import Awaitable
 
+from cv_common_library.schemas.cv_data_storage.candidates_result import CandidatesPageResultSchema
 from httpx import AsyncClient, Response
 
-from cv_scrapers.common.schemas.candidates_result import CandidatesPageResultSchema
 from cv_scrapers.scrapers.robotaua.config import get_robotaua_settings
 from cv_scrapers.scrapers.robotaua.config.enums import CityId
 from cv_scrapers.scrapers.robotaua.parsers import RobotaUACandidatesJsonParser
