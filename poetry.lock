@@ -357,7 +357,7 @@ toml = ["tomli"]
 
 [[package]]
 name = "cv-common-library"
-version = "0.5.0"
+version = "0.5.2"
 description = ""
 optional = false
 python-versions = "^3.12"
@@ -377,7 +377,7 @@ ruff = "^0.1.5"
 type = "git"
 url = "https://github.com/ZaslavkyDi/cv-common-library.git"
 reference = "main"
-resolved_reference = "de4a47fb28de07531b101f4ad3412b95204ec43b"
+resolved_reference = "a3627b11d9ea955214653e3f60c5764f0fe8474c"
 
 [[package]]
 name = "h11"

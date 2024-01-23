@@ -1,13 +1,13 @@
 from cv_common_library.message_brokers.kafka.base.producer import KafkaProducer
 from cv_common_library.message_brokers.kafka.config import get_kafka_global_settings
 from cv_common_library.message_brokers.schemas import BaseMetadataSchema
+from cv_common_library.schemas.cv_data_storage.message import (
+    CandidateResultBodyMessageSchema,
+    CandidateResultMessageSchema,
+)
 
 from cv_scrapers.common.enums import ScraperSourceName
 from cv_scrapers.common.schemas.candidates_result import CandidatesPageResultSchema
-from cv_scrapers.producers.schemas import (
-    CandidateResultOutgoingBodyMessageSchema,
-    CandidateResultOutgoingMessageSchema,
-)
 
 
 class CandidatesResultKafkaProducer(KafkaProducer):
@@ -27,11 +27,11 @@ class CandidatesResultKafkaProducer(KafkaProducer):
         page_result: CandidatesPageResultSchema,
         scraping_source: ScraperSourceName,
     ) -> None:
-        kafka_message = CandidateResultOutgoingMessageSchema(
+        kafka_message = CandidateResultMessageSchema(
             metadata=BaseMetadataSchema(request_id=request_id),
-            body=CandidateResultOutgoingBodyMessageSchema(
+            body=CandidateResultBodyMessageSchema(
                 page_result=page_result,
-                scrapping_source=scraping_source,
+                source=scraping_source.value(),
             ),
         )
         super().send_kafka_message(value=kafka_message)
